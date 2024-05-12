@@ -40,11 +40,13 @@ class PostResource extends Resource
                     ->required()
                     ->disabled()
                     ->maxLength(255),
-                Forms\Components\Textarea::make('body')
+                Forms\Components\RichEditor::make('body')
                     ->required()
+                    ->maxLength(65535)
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('image')
-                    ->image(),
+                    ->image()
+                    ->required(),
             ]);
     }
 
