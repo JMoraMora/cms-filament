@@ -15,12 +15,15 @@ return new class extends Migration
             $table->id();
 
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->foreign('user_id')->references('id')->on('users');
+
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
 
             $table->string('title');
-            $table->string('slug')->unique();
+            $table->string('slug');
             $table->text('body');
-            $table->string('image')->nullable();
+            $table->string('image_url')->nullable();
 
             $table->timestamps();
         });
