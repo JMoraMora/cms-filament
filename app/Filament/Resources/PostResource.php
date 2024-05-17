@@ -36,13 +36,15 @@ class PostResource extends Resource
                 Forms\Components\TextInput::make('slug')
                     ->required()
                     ->disabled()
+                    ->dehydrated()
                     ->maxLength(255),
                 Forms\Components\RichEditor::make('body')
                     ->required()
                     ->maxLength(65535)
                     ->columnSpanFull(),
-                Forms\Components\FileUpload::make('image')
-                    ->image(),
+                Forms\Components\FileUpload::make('image_url')
+                    ->image()
+                    ->imageEditor(),
             ]);
     }
 
